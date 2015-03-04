@@ -34,7 +34,7 @@ function enviaDatos(){
 	}).done(function(data){
 		if($.trim(data)=='ok'){
 			//alert(data);
-			$('#contenedorGlobal').load('home.html');
+			window.location.href='home.html';
 		}else if($.trim(data)=='error'){
 			alert(data);
 			$('#inicio').css('display','block');

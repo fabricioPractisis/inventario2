@@ -29,19 +29,24 @@
 function enviaDatos(){
 	var usuario = $("#nombredeusuario").val();
 	var password = $("#clave").val();
-	$.post('https://www.practisis.net/loginPhoneGap.php',{
-		usuario : usuario , password : password
-	}).done(function(data){
-		if($.trim(data)=='ok'){
-			//alert(data);
-			window.location.href='home.html';
-		}else if($.trim(data)=='error'){
-			alert(data);
-			$('#inicio').css('display','block');
-			$('#home').css('display','none');
-			window.location='http://lcodigo.com/login/index.html';
-		}
-	});
+	if(usuario =='' || password ==''){
+		alert('campos requeridos');
+	}else{
+		$.post('https://www.practisis.net/loginPhoneGap.php',{
+			usuario : usuario , password : password
+		}).done(function(data){
+			if($.trim(data)=='ok'){
+				//alert(data);
+				window.location.href='home.html';
+			}else if($.trim(data)=='error'){
+				alert(data);
+				$('#inicio').css('display','block');
+				$('#home').css('display','none');
+				window.location='http://lcodigo.com/login/index.html';
+			}
+		});
+	}
+	
 }
 </script>
  
